@@ -1,0 +1,9 @@
+[
+  {
+    "subject": "Mathematics 1A (PLACEHOLDER - fill from official syllabus)",
+    "units": [
+      {"unit": 1, "title": "FILL FROM OFFICIAL SYLLABUS", "topics": ["topic 1", "topic 2"]},
+      {"unit": 2, "title": "FILL FROM OFFICIAL SYLLABUS", "topics": ["topic 1", "topic 2"]}
+    ]
+  }
+]

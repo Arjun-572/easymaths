@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Tutor</title>
+<link rel="stylesheet" href="/static/katex/katex.min.css">
+<script src="/static/katex/katex.min.js"></script>
+<script src="/static/katex/auto-render.min.js"></script>
+<style>
+:root{--bg:#f7f7f5;--panel:#fff;--side:#efeee9;--text:#1f1f1d;--mut:#6b6a66;--line:#dcdad2;--acc:#c2410c;--ok:#15803d;--warn:#b45309;--paper:#fffef8;--rule:#cfd8ea}
+[data-theme=dark]{--bg:#1c1b19;--panel:#262522;--side:#161513;--text:#ecebe6;--mut:#a09f98;--line:#3a3935;--acc:#f97316;--ok:#4ade80;--warn:#fbbf24;--paper:#2b2a26;--rule:#3b4254}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 "Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--text);height:100vh}
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+#auth{display:grid;place-items:center;height:100vh}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;width:340px;display:flex;flex-direction:column;gap:12px}
+.box h2{margin:0 0 4px}
+input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 14px;font-weight:600}
+.btn.ghost{background:none;color:var(--text);border:1px solid var(--line)}
+.err{color:#dc2626;font-size:13px;min-height:18px}
+.link{background:none;border:0;color:var(--acc);padding:0}
+#app{display:flex;height:100vh}
+aside{width:260px;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:12px;gap:8px}
+aside h1{font-size:17px;margin:4px 6px 8px}
+#chats{flex:1;overflow:auto;display:flex;flex-direction:column;gap:2px}
+.ci{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:14px}
+.ci:hover,.ci.on{background:var(--line)}
+.ci span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ci button{background:none;border:0;color:var(--mut);font-size:16px}
+.nav{background:none;border:0;text-align:left;padding:8px 10px;border-radius:8px}
+.nav:hover{background:var(--line)}
+main{flex:1;display:flex;flex-direction:column;min-width:0}
+#ctx{display:flex;flex-wrap:wrap;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+#ctx label{font-size:12px;color:var(--mut);display:flex;flex-direction:column;gap:2px}
+#ctx select{padding:5px 8px;max-width:230px}
+#msgs{flex:1;overflow:auto;padding:20px 18px;display:flex;flex-direction:column;gap:16px}
+.me{align-self:flex-end;background:var(--acc);color:#fff;padding:9px 14px;border-radius:14px 14px 4px 14px;max-width:70%;white-space:pre-wrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;max-width:1100px;width:100%}
+.badge{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;border:1px solid;margin-bottom:10px}
+.badge.ok{color:var(--ok)}.badge.warn{color:var(--warn)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card h4{margin:0 0 6px;font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.notes{background:var(--paper);border:1px solid var(--line);border-left:3px solid #e11d48;border-radius:10px;padding:8px 16px}
+.ln{margin:6px 0;line-height:1.8;font-size:16px}
+.expl p.ln{margin:0 0 8px}
+.katex-display{margin:.4em 0}
+.expl{padding:10px 4px}
+.used{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+.used pre,#fbody pre{margin:0;white-space:pre-wrap;font:14px/1.6 "Cambria Math",Georgia,serif}
+.welcome{margin:auto;text-align:center;color:var(--mut);max-width:520px}
+.welcome h2{color:var(--text)}
+.ex{display:inline-block;margin:4px;padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:var(--panel);cursor:pointer;font-size:13px}
+footer{padding:12px 18px;border-top:1px solid var(--line);background:var(--panel);display:flex;gap:10px}
+footer textarea{flex:1;resize:none;height:46px}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);width:min(560px,92vw);max-height:80vh}
+dialog label{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;font-size:13px;color:var(--mut)}
+dialog h3{margin-top:0}
+.mut{color:var(--mut)}
+#menu{display:none}
+@media(max-width:800px){aside{position:fixed;z-index:5;height:100vh;transform:translateX(-100%);transition:.2s}aside.open{transform:none}
+ #menu{display:block;position:fixed;top:8px;right:10px;z-index:6}.cols{grid-template-columns:1fr}.me{max-width:90%}}
+</style>
+</head>
+<body>
+
+<div id="auth" hidden>
+ <div class="box">
+  <h2 id="aTitle">Log in</h2>
+  <input id="u" placeholder="Username" autocomplete="username">
+  <input id="p" type="password" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')auth()">
+  <div class="err" id="aErr"></div>
+  <button class="btn" id="aBtn" onclick="auth()">Log in</button>
+  <div class="mut" id="aSw"></div>
+ </div>
+</div>
+
+<div id="app" hidden>
+ <button id="menu" class="btn ghost" onclick="document.querySelector('aside').classList.toggle('open')">☰</button>
+ <aside>
+  <h1>📐 Math Tutor</h1>
+  <button class="btn" onclick="newChat()">+ New chat</button>
+  <div id="chats"></div>
+  <button class="nav" onclick="openFormulas()">📘 Formulas by unit</button>
+  <button class="nav" onclick="openSettings()">⚙ Settings</button>
+  <button class="nav" onclick="logout()">⎋ Log out (<span id="who"></span>)</button>
+ </aside>
+ <main>
+  <div id="ctx"></div>
+  <div id="msgs"></div>
+  <footer>
+   <textarea id="inp" placeholder="Ask a maths question, e.g. Differentiate x^2*sin(x)"
+     onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send()}"></textarea>
+   <button class="btn" onclick="send()">Send</button>
+  </footer>
+ </main>
+</div>
+
+<dialog id="dlgS">
+ <h3>Settings</h3>
+ <label>Ollama model <input id="s_model" placeholder="qwen2.5:3b"></label>
+ <label>Explanation language <select id="s_lang"><option>English</option><option>Telugu</option></select></label>
+ <label>Theme <select id="s_theme"><option value="light">Light</option><option value="dark">Dark</option></select></label>
+ <button class="btn ghost" onclick="delAll()">Delete all my chats</button>
+ <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
+  <button class="btn ghost" onclick="$('#dlgS').close()">Cancel</button>
+  <button class="btn" onclick="saveSettings()">Save</button>
+ </div>
+</dialog>
+
+<dialog id="dlgF">
+ <h3>Formulas</h3>
+ <div id="fbody"></div>
+ <div style="text-align:right"><button class="btn ghost" onclick="$('#dlgF').close()">Close</button></div>
+</dialog>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const COURSES=["Inter 1st year","Inter 2nd year","Diploma","B.Tech"];
+const needsYS=c=>c==="Diploma"||c==="B.Tech";
+let me=null,syl={},chats=[],cur=null,ctx={},settings={},busy=false,mode='login';
+
+async function api(path,method='GET',body){
+  const r=await fetch('/api/'+path,{method,headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+  if(!r.ok){let m='Something went wrong';try{m=(await r.json()).detail}catch{}throw new Error(m)}
+  return r.json();
+}
+
+/* ---------- auth ---------- */
+function setMode(m){
+  mode=m;$('#aErr').textContent='';
+  $('#aTitle').textContent=m==='login'?'Log in':'Create account';
+  $('#aBtn').textContent=m==='login'?'Log in':'Create account';
+  $('#aSw').innerHTML=m==='login'?'No account? <button class="link" onclick="setMode(\'register\')">Create one</button>'
+    :'Have an account? <button class="link" onclick="setMode(\'login\')">Log in</button>';
+}
+async function auth(){
+  try{me=await api(mode,'POST',{username:$('#u').value.trim(),password:$('#p').value});await boot()}
+  catch(e){$('#aErr').textContent=e.message}
+}
+async function logout(){await api('logout','POST');location.reload()}
+
+/* ---------- boot ---------- */
+async function boot(){
+  [syl,settings]=await Promise.all([api('syllabus'),api('settings')]);
+  applyTheme();
+  $('#auth').hidden=true;$('#app').hidden=false;$('#who').textContent=me.username;
+  ctx=JSON.parse(localStorage.getItem('ctx')||'{}');if(!ctx.course)ctx.course=COURSES[0];
+  buildCtx();await loadChats();newChat();
+}
+function applyTheme(){document.documentElement.dataset.theme=settings.theme||'light'}
+
+/* ---------- course / semester / subject / unit selectors ---------- */
+function curSubj(){
+  const ys=needsYS(ctx.course);
+  return (syl[ctx.course]||[]).find(e=>e.subject===ctx.subject&&(!ys||(String(e.year)===String(ctx.year)&&String(e.semester)===String(ctx.sem))));
+}
+function buildCtx(){
+  const all=syl[ctx.course]||[],ys=needsYS(ctx.course);
+  const uniq=a=>[...new Set(a.map(String))].filter(v=>v!=='undefined').sort();
+  const years=uniq(all.map(e=>e.year));
+  if(ys&&!years.includes(String(ctx.year)))ctx.year=years[0];
+  const byY=ys?all.filter(e=>String(e.year)===String(ctx.year)):all;
+  const sems=uniq(byY.map(e=>e.semester));
+  if(ys&&!sems.includes(String(ctx.sem)))ctx.sem=sems[0];
+  const list=ys?byY.filter(e=>String(e.semester)===String(ctx.sem)):byY;
+  const subs=list.map(e=>e.subject);
+  if(!subs.includes(ctx.subject))ctx.subject=subs[0];
+  const subj=list.find(e=>e.subject===ctx.subject);
+  const units=subj?subj.units.map(u=>`Unit ${u.unit}: ${u.title}`):[];
+  if(!units.includes(ctx.unit))ctx.unit=units[0];
+  const S=(k,label,opts)=>`<label>${label}<select onchange="onCtx('${k}',this.value)">${opts.map(o=>`<option ${String(o)===String(ctx[k])?'selected':''}>${esc(o)}</option>`).join('')}</select></label>`;
+  $('#ctx').innerHTML=S('course','Course',COURSES)+(ys?S('year','Year',years)+S('sem','Semester',sems):'')
+    +S('subject','Subject',subs.length?subs:['(no data yet)'])+S('unit','Unit',units.length?units:['(no data yet)']);
+  localStorage.setItem('ctx',JSON.stringify(ctx));
+}
+function onCtx(k,v){
+  ctx[k]=v;
+  const reset={course:['year','sem','subject','unit'],year:['sem','subject','unit'],sem:['subject','unit'],subject:['unit']}[k]||[];
+  reset.forEach(f=>delete ctx[f]);buildCtx();
+}
+
+/* ---------- chats ---------- */
+async function loadChats(){chats=await api('chats');renderChats()}
+function renderChats(){
+  $('#chats').innerHTML=chats.map(c=>`<div class="ci ${c.id===cur?'on':''}" onclick="openChat(${c.id})"><span>${esc(c.title)}</span><button onclick="event.stopPropagation();delChat(${c.id})">×</button></div>`).join('');
+}
+async function openChat(id){
+  cur=id;const d=await api('chats/'+id);
+  if(d.context&&d.context.course){ctx=d.context;buildCtx()}
+  renderMsgs(d.messages);renderChats();
+}
+function newChat(){cur=null;renderMsgs([]);renderChats()}
+async function delChat(id){await api('chats/'+id,'DELETE');if(cur===id)newChat();await loadChats()}
+async function delAll(){if(!confirm('Delete all your chats?'))return;await api('chats','DELETE');newChat();await loadChats();$('#dlgS').close()}
+
+/* ---------- messages ---------- */
+/* ---------- maths typesetting (KaTeX, bundled in /static/katex so it works offline) ---------- */
+const HAS_TEX=/\\[()\[\]]|\$/;
+function fixLine(l){
+  if(HAS_TEX.test(l)||!/[=^\\]/.test(l))return l;            // already delimited, or plain words
+  const m=l.match(/^([A-Za-z ]{1,25}\d*:)\s*(.*)$/);          // "Step 2:" label, then maths
+  return m?`${m[1]} \\(${m[2]}\\)`:`\\(${l}\\)`;
+}
+function mathLines(t,tag,display){
+  t=String(t||'').replace(/\\\[([\s\S]*?)\\\]/g,(_,m)=>'\\('+m.replace(/\s*\n\s*/g,' ').trim()+'\\)').replace(/\$\$([\s\S]*?)\$\$/g,(_,m)=>'\\('+m.replace(/\s*\n\s*/g,' ').trim()+'\\)');
+  return t.split('\n').filter(l=>l.trim()).map(l=>{
+    let h=fixLine(esc(l));
+    if(display)h=h.replace(/\\\(/g,'\\(\\displaystyle ');
+    return `<${tag} class="ln">${h}</${tag}>`;
+  }).join('');
+}
+function typeset(el){
+  try{renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},
+    {left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}],throwOnError:false})}catch(e){}
+}
+function card(a){
+  const badge=a.verified?`<span class="badge ok">✓ Result checked by maths engine: ${a.verified_tex?`\\(${esc(a.verified_tex)}\\)`:esc(a.verified)}</span>`
+    :`<span class="badge warn">Not machine-verified - check the steps yourself</span>`;
+  return `<div class="card">${badge}
+   <div class="cols"><section><h4>Solution (notes)</h4><div class="notes">${mathLines(a.solution,'div',true)}</div></section>
+   <section><h4>Explanation, line by line</h4><div class="expl">${mathLines(a.explanation,'p',false)||'<p class="mut">-</p>'}</div></section></div>
+   ${a.formulas?`<div class="used"><h4>Formulas used</h4>${mathLines(a.formulas,'div',false)}</div>`:''}</div>`;
+}
+function renderMsgs(list){
+  const m=$('#msgs');
+  if(!list.length){
+    m.innerHTML=`<div class="welcome"><h2>What do you want to solve?</h2>
+     <p>Pick your course, semester, subject and unit above, then ask.</p>
+     ${['Differentiate x^2*sin(x)','Solve x^2-5x+6=0','Integrate 2x','Limit of sin(x)/x as x->0'].map(t=>`<span class="ex" onclick="$('#inp').value=this.textContent;$('#inp').focus()">${esc(t)}</span>`).join('')}</div>`;
+    return;
+  }
+  m.innerHTML=list.map(x=>x.role==='user'?`<div class="me">${esc(x.content)}</div>`:card(x.content)).join('');
+  typeset(m);m.scrollTop=m.scrollHeight;
+}
+function addEl(html){
+  const m=$('#msgs');const w=m.querySelector('.welcome');if(w)w.remove();
+  const d=document.createElement('div');d.style.display='contents';d.innerHTML=html;m.appendChild(d);m.scrollTop=m.scrollHeight;return d;
+}
+async function send(){
+  const t=$('#inp').value.trim();if(!t||busy)return;
+  busy=true;$('#inp').value='';
+  try{
+    if(!cur){cur=(await api('chats','POST',{context:ctx})).id}
+    addEl(`<div class="me">${esc(t)}</div>`);
+    const pend=addEl(`<div class="card mut">Solving… (the first answer can take up to a minute)</div>`);
+    try{
+      const a=await api(`chats/${cur}/ask`,'POST',{text:t,context:ctx});
+      pend.innerHTML=card(a);typeset(pend);
+    }catch(e){pend.innerHTML=`<div class="card"><span class="err">${esc(e.message)}</span></div>`}
+    await loadChats();
+  }finally{busy=false}
+}
+
+/* ---------- settings & formulas ---------- */
+function openSettings(){
+  $('#s_model').value=settings.model||'qwen2.5:3b';$('#s_lang').value=settings.lang||'English';$('#s_theme').value=settings.theme||'light';
+  $('#dlgS').showModal();
+}
+async function saveSettings(){
+  settings=await api('settings','POST',{model:$('#s_model').value.trim(),lang:$('#s_lang').value,theme:$('#s_theme').value});
+  applyTheme();$('#dlgS').close();
+}
+function openFormulas(){
+  const s=curSubj();
+  $('#fbody').innerHTML=!s?'<p class="mut">No subject selected yet.</p>':
+   `<p class="mut">${esc(s.subject)}</p>`+s.units.map(u=>`<h4>Unit ${u.unit}: ${esc(u.title)}</h4>`+
+    (u.formulas&&u.formulas.length?mathLines(u.formulas.join('\n'),'div',false):'<p class="mut">No formulas added yet (add a "formulas" list to this unit in the data file).</p>')).join('');
+  typeset($('#fbody'));$('#dlgF').showModal();
+}
+
+/* ---------- start ---------- */
+setMode('login');
+api('me').then(u=>{me=u;boot()}).catch(()=>{$('#auth').hidden=false});
+</script>
+</body>
+</html>

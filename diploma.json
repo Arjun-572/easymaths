@@ -1,0 +1,94 @@
+[
+ {
+  "year": 1,
+  "semester": 1,
+  "subject": "Basic Engineering Mathematics",
+  "verified": false,
+  "note": "Diploma units are a draft.",
+  "source": "Structure and title reflect the common diploma mathematics topics and the SBTET C-21 'Basic Engineering Mathematics' listing; SBTET has since introduced C-24. Unit boundaries are a draft - confirm against your own syllabus.",
+  "units": [
+   {
+    "unit": 1,
+    "title": "Matrices, Determinants and Partial Fractions (draft)",
+    "topics": [
+     "Types of matrices and operations",
+     "Determinants, minors, cofactors",
+     "Adjoint and inverse",
+     "Solving linear equations by Cramer's rule and matrix inversion",
+     "Partial fractions"
+    ],
+    "formulas": [
+     "|A| = a_{11}(a_{22}a_{33}-a_{23}a_{32}) - a_{12}(a_{21}a_{33}-a_{23}a_{31}) + a_{13}(a_{21}a_{32}-a_{22}a_{31})",
+     "A^{-1} = \\dfrac{\\operatorname{adj}A}{|A|}",
+     "Cramer's rule: x = \\dfrac{\\Delta_1}{\\Delta},\\; y = \\dfrac{\\Delta_2}{\\Delta},\\; z = \\dfrac{\\Delta_3}{\\Delta}",
+     "\\dfrac{px+q}{(x-a)(x-b)} = \\dfrac{A}{x-a}+\\dfrac{B}{x-b}"
+    ]
+   },
+   {
+    "unit": 2,
+    "title": "Trigonometry (draft)",
+    "topics": [
+     "Ratios of compound, multiple and sub-multiple angles",
+     "Transformations",
+     "Simple trigonometric equations",
+     "Inverse functions",
+     "Properties of triangles"
+    ],
+    "formulas": [
+     "\\sin(A\\pm B) = \\sin A\\cos B \\pm \\cos A\\sin B",
+     "\\cos(A\\pm B) = \\cos A\\cos B \\mp \\sin A\\sin B",
+     "\\sin 2A = 2\\sin A\\cos A,\\quad \\cos 2A = 2\\cos^2A-1",
+     "\\sin C+\\sin D = 2\\sin\\dfrac{C+D}{2}\\cos\\dfrac{C-D}{2}",
+     "Sine rule: \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}"
+    ]
+   },
+   {
+    "unit": 3,
+    "title": "Coordinate Geometry (draft)",
+    "topics": [
+     "Straight line",
+     "Circle"
+    ],
+    "formulas": [
+     "Distance from a point to a line: d = \\dfrac{|ax_1+by_1+c|}{\\sqrt{a^2+b^2}}",
+     "Angle between lines: \\tan\\theta = \\left|\\dfrac{m_1-m_2}{1+m_1m_2}\\right|",
+     "Circle: x^2+y^2+2gx+2fy+c = 0,\\ \\text{centre } (-g,-f),\\ r = \\sqrt{g^2+f^2-c}"
+    ]
+   },
+   {
+    "unit": 4,
+    "title": "Differentiation and its Applications (draft)",
+    "topics": [
+     "Limits",
+     "Derivatives and rules",
+     "Second order derivatives",
+     "Partial derivatives",
+     "Rate measure, maxima and minima"
+    ],
+    "formulas": [
+     "\\dfrac{d}{dx}(x^n) = nx^{n-1}",
+     "(uv)' = u'v+uv',\\quad \\left(\\dfrac uv\\right)' = \\dfrac{u'v-uv'}{v^2}",
+     "Chain rule: \\dfrac{dy}{dx} = \\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}",
+     "\\lim_{x\\to0}\\dfrac{\\sin x}{x} = 1",
+     "Maximum if f'(x)=0 and f''(x)<0"
+    ]
+   },
+   {
+    "unit": 5,
+    "title": "Integration and its Applications (draft)",
+    "topics": [
+     "Standard integrals",
+     "Substitution, parts, partial fractions",
+     "Definite integrals",
+     "Area under a curve"
+    ],
+    "formulas": [
+     "\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}+C",
+     "By parts: \\int u\\,dv = uv-\\int v\\,du",
+     "\\int_a^bf(x)\\,dx = F(b)-F(a)",
+     "Area under curve: \\int_a^by\\,dx"
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,305 @@
+[
+ {
+  "subject": "Mathematics 2A",
+  "verified": true,
+  "source": "Chapter titles: TSBIE Class 12 Maths II-A / II-B syllabus listing (Careers360 and PW summaries of the board syllabus). Topics and formulas are standard textbook content written for this app; check them against your textbook.",
+  "units": [
+   {
+    "unit": 1,
+    "title": "Complex Numbers",
+    "topics": [
+     "Complex numbers as ordered pairs",
+     "Modulus, conjugate, amplitude",
+     "Argand diagram and polar form"
+    ],
+    "formulas": [
+     "i^2 = -1",
+     "|z| = \\sqrt{x^2+y^2},\\quad z\\bar z = |z|^2",
+     "\\dfrac1z = \\dfrac{\\bar z}{|z|^2}",
+     "Polar form: z = r(\\cos\\theta + i\\sin\\theta)",
+     "|z_1z_2| = |z_1||z_2|,\\quad \\arg(z_1z_2) = \\arg z_1 + \\arg z_2",
+     "|z_1+z_2| \\le |z_1|+|z_2|",
+     "1+\\omega+\\omega^2 = 0,\\quad \\omega^3 = 1"
+    ]
+   },
+   {
+    "unit": 2,
+    "title": "De Moivre's Theorem",
+    "topics": [
+     "De Moivre's theorem for integral and rational indices",
+     "nth roots of unity",
+     "Geometrical interpretation"
+    ],
+    "formulas": [
+     "(\\cos\\theta+i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta",
+     "e^{i\\theta} = \\cos\\theta + i\\sin\\theta",
+     "nth roots of z: r^{1/n}\\left[\\cos\\dfrac{\\theta+2k\\pi}{n}+i\\sin\\dfrac{\\theta+2k\\pi}{n}\\right],\\ k=0,\\dots,n-1",
+     "nth roots of unity: e^{2\\pi ik/n},\\ \\text{their sum is } 0"
+    ]
+   },
+   {
+    "unit": 3,
+    "title": "Quadratic Expressions",
+    "topics": [
+     "Roots of a quadratic",
+     "Nature of roots",
+     "Sign and extreme values of ax^2+bx+c"
+    ],
+    "formulas": [
+     "x = \\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}",
+     "Discriminant: D = b^2-4ac",
+     "\\alpha+\\beta = -\\dfrac ba,\\quad \\alpha\\beta = \\dfrac ca",
+     "Equation from roots: x^2-(\\alpha+\\beta)x+\\alpha\\beta = 0",
+     "Extreme value at x=-\\dfrac{b}{2a}: \\dfrac{4ac-b^2}{4a}"
+    ]
+   },
+   {
+    "unit": 4,
+    "title": "Theory of Equations",
+    "topics": [
+     "Relations between roots and coefficients",
+     "Transformation of equations",
+     "Multiple roots, complex roots"
+    ],
+    "formulas": [
+     "Cubic ax^3+bx^2+cx+d=0: \\sum\\alpha = -\\dfrac ba,\\ \\sum\\alpha\\beta = \\dfrac ca,\\ \\alpha\\beta\\gamma = -\\dfrac da",
+     "Quartic: \\sum\\alpha = -\\dfrac ba,\\ \\alpha\\beta\\gamma\\delta = \\dfrac ea",
+     "Complex roots of real polynomials occur in conjugate pairs"
+    ]
+   },
+   {
+    "unit": 5,
+    "title": "Permutations and Combinations",
+    "topics": [
+     "Fundamental principle of counting",
+     "Permutations",
+     "Circular permutations",
+     "Combinations"
+    ],
+    "formulas": [
+     "{}^nP_r = \\dfrac{n!}{(n-r)!}",
+     "{}^nC_r = \\dfrac{n!}{r!(n-r)!}",
+     "{}^nC_r = {}^nC_{n-r}",
+     "{}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r",
+     "Circular arrangements of n objects: (n-1)!",
+     "With repetition: \\dfrac{n!}{p!\\,q!\\,r!}"
+    ]
+   },
+   {
+    "unit": 6,
+    "title": "Binomial Theorem",
+    "topics": [
+     "Binomial theorem for a positive integral index",
+     "General and middle terms",
+     "Rational index and approximations"
+    ],
+    "formulas": [
+     "(x+a)^n = \\sum_{r=0}^{n}{}^nC_r\\,x^{n-r}a^r",
+     "General term: T_{r+1} = {}^nC_r\\,x^{n-r}a^r",
+     "{}^nC_0+{}^nC_1+\\cdots+{}^nC_n = 2^n",
+     "(1+x)^n = 1+nx+\\dfrac{n(n-1)}{2!}x^2+\\cdots,\\quad |x|<1"
+    ]
+   },
+   {
+    "unit": 7,
+    "title": "Partial Fractions",
+    "topics": [
+     "Distinct linear factors",
+     "Repeated linear factors",
+     "Irreducible quadratic factors"
+    ],
+    "formulas": [
+     "\\dfrac{px+q}{(x-a)(x-b)} = \\dfrac{A}{x-a}+\\dfrac{B}{x-b}",
+     "Repeated factor: \\dfrac{A}{x-a}+\\dfrac{B}{(x-a)^2}",
+     "Quadratic factor: \\dfrac{Ax+B}{x^2+bx+c}",
+     "Improper fraction: divide first, then split the remainder"
+    ]
+   },
+   {
+    "unit": 8,
+    "title": "Measures of Dispersion",
+    "topics": [
+     "Range",
+     "Mean deviation",
+     "Variance and standard deviation",
+     "Coefficient of variation"
+    ],
+    "formulas": [
+     "Mean deviation about a: \\dfrac1n\\sum|x_i-a|",
+     "Variance: \\sigma^2 = \\dfrac1n\\sum(x_i-\\bar x)^2",
+     "Grouped data: \\sigma^2 = \\dfrac{\\sum f_ix_i^2}{N}-\\left(\\dfrac{\\sum f_ix_i}{N}\\right)^2",
+     "Standard deviation: \\sigma = \\sqrt{\\sigma^2}",
+     "Coefficient of variation: \\text{C.V.} = \\dfrac{\\sigma}{\\bar x}\\times100"
+    ]
+   },
+   {
+    "unit": 9,
+    "title": "Probability",
+    "topics": [
+     "Axiomatic approach, addition theorem",
+     "Conditional probability",
+     "Multiplication theorem",
+     "Independent events and Bayes' theorem"
+    ],
+    "formulas": [
+     "P(A) = \\dfrac{n(A)}{n(S)}",
+     "P(A\\cup B) = P(A)+P(B)-P(A\\cap B)",
+     "P(A') = 1-P(A)",
+     "P(A|B) = \\dfrac{P(A\\cap B)}{P(B)}",
+     "P(A\\cap B) = P(A)P(B|A)",
+     "Independent events: P(A\\cap B) = P(A)P(B)",
+     "Bayes: P(A_i|B) = \\dfrac{P(A_i)P(B|A_i)}{\\sum_jP(A_j)P(B|A_j)}"
+    ]
+   }
+  ]
+ },
+ {
+  "subject": "Mathematics 2B",
+  "verified": true,
+  "source": "Chapter titles: TSBIE Class 12 Maths II-A / II-B syllabus listing (Careers360 and PW summaries of the board syllabus). Topics and formulas are standard textbook content written for this app; check them against your textbook.",
+  "units": [
+   {
+    "unit": 1,
+    "title": "Circle",
+    "topics": [
+     "Equation of a circle",
+     "Tangent and normal",
+     "Chord of contact, pole and polar"
+    ],
+    "formulas": [
+     "Standard form: (x-h)^2+(y-k)^2 = r^2",
+     "General: x^2+y^2+2gx+2fy+c = 0,\\ \\text{centre } (-g,-f),\\ r = \\sqrt{g^2+f^2-c}",
+     "Tangent at (x_1,y_1): xx_1+yy_1+g(x+x_1)+f(y+y_1)+c = 0",
+     "Length of tangent: \\sqrt{S_{11}}",
+     "Tangent condition: c^2 = a^2(1+m^2)"
+    ]
+   },
+   {
+    "unit": 2,
+    "title": "System of Circles",
+    "topics": [
+     "Angle between circles",
+     "Radical axis and radical centre",
+     "Orthogonal and coaxal circles"
+    ],
+    "formulas": [
+     "Radical axis: S-S' = 0",
+     "Family: S+\\lambda S' = 0",
+     "Orthogonal circles: 2gg'+2ff' = c+c'",
+     "Angle between circles: \\cos\\theta = \\dfrac{r_1^2+r_2^2-d^2}{2r_1r_2}"
+    ]
+   },
+   {
+    "unit": 3,
+    "title": "Parabola",
+    "topics": [
+     "Standard equation",
+     "Tangent and normal",
+     "Parametric form"
+    ],
+    "formulas": [
+     "y^2 = 4ax:\\ \\text{focus } (a,0),\\ \\text{directrix } x=-a",
+     "Latus rectum = 4a",
+     "Parametric: (at^2,\\,2at)",
+     "Tangent at (x_1,y_1): yy_1 = 2a(x+x_1)",
+     "Tangent with slope m: y = mx+\\dfrac am"
+    ]
+   },
+   {
+    "unit": 4,
+    "title": "Ellipse",
+    "topics": [
+     "Standard equation",
+     "Tangent and normal",
+     "Auxiliary circle"
+    ],
+    "formulas": [
+     "\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2} = 1,\\quad b^2 = a^2(1-e^2)",
+     "Foci: (\\pm ae,0),\\quad \\text{directrices } x = \\pm\\dfrac ae",
+     "Latus rectum = \\dfrac{2b^2}{a}",
+     "Parametric: (a\\cos\\theta,\\,b\\sin\\theta)",
+     "Tangent at (x_1,y_1): \\dfrac{xx_1}{a^2}+\\dfrac{yy_1}{b^2} = 1",
+     "Tangent condition: c^2 = a^2m^2+b^2"
+    ]
+   },
+   {
+    "unit": 5,
+    "title": "Hyperbola",
+    "topics": [
+     "Standard equation",
+     "Asymptotes",
+     "Tangent and normal"
+    ],
+    "formulas": [
+     "\\dfrac{x^2}{a^2}-\\dfrac{y^2}{b^2} = 1,\\quad b^2 = a^2(e^2-1)",
+     "Foci: (\\pm ae,0),\\quad \\text{asymptotes } y = \\pm\\dfrac bax",
+     "Latus rectum = \\dfrac{2b^2}{a}",
+     "Parametric: (a\\sec\\theta,\\,b\\tan\\theta)",
+     "Tangent at (x_1,y_1): \\dfrac{xx_1}{a^2}-\\dfrac{yy_1}{b^2} = 1",
+     "Tangent condition: c^2 = a^2m^2-b^2"
+    ]
+   },
+   {
+    "unit": 6,
+    "title": "Integration",
+    "topics": [
+     "Standard integrals",
+     "Substitution",
+     "Integration by parts",
+     "Partial fractions",
+     "Reduction formulae"
+    ],
+    "formulas": [
+     "\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}+C \\quad (n\\ne-1)",
+     "\\int\\dfrac1x\\,dx = \\ln|x|+C",
+     "\\int e^x\\,dx = e^x+C,\\quad \\int a^x\\,dx = \\dfrac{a^x}{\\ln a}+C",
+     "\\int\\sin x\\,dx = -\\cos x+C,\\quad \\int\\cos x\\,dx = \\sin x+C",
+     "\\int\\sec^2x\\,dx = \\tan x+C",
+     "\\int\\dfrac{dx}{x^2+a^2} = \\dfrac1a\\tan^{-1}\\dfrac xa+C",
+     "\\int\\dfrac{dx}{\\sqrt{a^2-x^2}} = \\sin^{-1}\\dfrac xa+C",
+     "\\int\\dfrac{dx}{x^2-a^2} = \\dfrac1{2a}\\ln\\left|\\dfrac{x-a}{x+a}\\right|+C",
+     "\\int\\dfrac{dx}{\\sqrt{x^2+a^2}} = \\ln\\left|x+\\sqrt{x^2+a^2}\\right|+C",
+     "By parts: \\int u\\,dv = uv-\\int v\\,du",
+     "\\int e^{ax}\\sin bx\\,dx = \\dfrac{e^{ax}(a\\sin bx-b\\cos bx)}{a^2+b^2}+C",
+     "\\int e^x[f(x)+f'(x)]\\,dx = e^xf(x)+C"
+    ]
+   },
+   {
+    "unit": 7,
+    "title": "Definite Integrals",
+    "topics": [
+     "Fundamental theorem of calculus",
+     "Properties of definite integrals",
+     "Reduction formulae and Wallis formula",
+     "Area under a curve"
+    ],
+    "formulas": [
+     "\\int_a^bf(x)\\,dx = F(b)-F(a)",
+     "\\int_a^bf(x)\\,dx = \\int_a^bf(a+b-x)\\,dx",
+     "\\int_{-a}^{a}f(x)\\,dx = 2\\int_0^af(x)\\,dx \\ (f \\text{ even}),\\quad 0 \\ (f\\text{ odd})",
+     "\\int_0^{2a}f(x)\\,dx = 2\\int_0^af(x)\\,dx \\ \\text{if } f(2a-x)=f(x)",
+     "Area under curve: \\int_a^by\\,dx"
+    ]
+   },
+   {
+    "unit": 8,
+    "title": "Differential Equations",
+    "topics": [
+     "Order and degree",
+     "Formation of differential equations",
+     "Variable separable",
+     "Homogeneous",
+     "Linear",
+     "Exact"
+    ],
+    "formulas": [
+     "Variable separable: \\int f(x)\\,dx = \\int g(y)\\,dy",
+     "Homogeneous: put y = vx",
+     "Linear: \\dfrac{dy}{dx}+Py = Q,\\quad \\text{I.F.} = e^{\\int P\\,dx}",
+     "Solution: y\\cdot\\text{I.F.} = \\int Q\\cdot\\text{I.F.}\\,dx + C",
+     "Exact: M\\,dx+N\\,dy = 0 \\text{ if } \\dfrac{\\partial M}{\\partial y} = \\dfrac{\\partial N}{\\partial x}"
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,197 @@
+[
+ {
+  "year": 1,
+  "semester": 1,
+  "subject": "Matrices and Calculus (MA101BS, JNTUH R22)",
+  "verified": true,
+  "source": "JNTUH R22 B.Tech course structure and syllabus (jntuh.ac.in), MA101BS Matrices and Calculus: Units I, III, IV, V titles confirmed from the JNTUH PDF; Unit II title is the standard R22 content. Topics and formulas are written for this app. JNTUH has newer regulations (R25) - check which applies to you.",
+  "units": [
+   {
+    "unit": 1,
+    "title": "Matrices",
+    "topics": [
+     "Rank by echelon and normal form",
+     "Inverse by Gauss-Jordan method",
+     "Homogeneous and non-homogeneous systems",
+     "Gauss elimination and Gauss-Seidel iteration"
+    ],
+    "formulas": [
+     "Consistent system: \\operatorname{rank}(A) = \\operatorname{rank}([A|B])",
+     "Unique solution if rank = number of unknowns",
+     "Homogeneous system AX=0 has a non-trivial solution if \\operatorname{rank}(A) < n",
+     "Gauss-Jordan: [A|I] \\to [I|A^{-1}]"
+    ]
+   },
+   {
+    "unit": 2,
+    "title": "Eigenvalues and Eigenvectors",
+    "topics": [
+     "Characteristic equation",
+     "Cayley-Hamilton theorem",
+     "Diagonalization",
+     "Quadratic forms"
+    ],
+    "formulas": [
+     "Characteristic equation: |A-\\lambda I| = 0",
+     "Sum of eigenvalues = trace of A,\\quad product of eigenvalues = |A|",
+     "Cayley-Hamilton: every square matrix satisfies its characteristic equation",
+     "Diagonalization: P^{-1}AP = D",
+     "Quadratic form: Q = X^TAX"
+    ]
+   },
+   {
+    "unit": 3,
+    "title": "Calculus",
+    "topics": [
+     "Mean value theorems",
+     "Taylor's and Maclaurin's series",
+     "Applications of definite integrals",
+     "Improper integrals, Beta and Gamma functions"
+    ],
+    "formulas": [
+     "Rolle's theorem: f(a)=f(b) \\Rightarrow f'(c)=0",
+     "Lagrange: f'(c) = \\dfrac{f(b)-f(a)}{b-a}",
+     "Cauchy: \\dfrac{f'(c)}{g'(c)} = \\dfrac{f(b)-f(a)}{g(b)-g(a)}",
+     "Taylor: f(x) = f(a)+f'(a)(x-a)+\\dfrac{f''(a)}{2!}(x-a)^2+\\cdots",
+     "Maclaurin: f(x) = f(0)+xf'(0)+\\dfrac{x^2}{2!}f''(0)+\\cdots",
+     "Volume of revolution: V = \\pi\\int_a^by^2\\,dx",
+     "Surface of revolution: S = 2\\pi\\int_a^by\\sqrt{1+\\left(\\dfrac{dy}{dx}\\right)^2}\\,dx",
+     "\\Gamma(n) = \\int_0^\\infty e^{-x}x^{n-1}\\,dx,\\quad \\Gamma(n+1) = n\\Gamma(n),\\quad \\Gamma\\left(\\tfrac12\\right)=\\sqrt\\pi",
+     "B(m,n) = \\int_0^1x^{m-1}(1-x)^{n-1}\\,dx = \\dfrac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m+n)}"
+    ]
+   },
+   {
+    "unit": 4,
+    "title": "Multivariable Calculus (Partial Differentiation and Applications)",
+    "topics": [
+     "Partial derivatives",
+     "Total derivative and chain rule",
+     "Jacobian",
+     "Maxima and minima",
+     "Lagrange multipliers"
+    ],
+    "formulas": [
+     "Euler's theorem (homogeneous of degree n): x\\dfrac{\\partial f}{\\partial x}+y\\dfrac{\\partial f}{\\partial y} = nf",
+     "Chain rule: \\dfrac{du}{dt} = \\dfrac{\\partial u}{\\partial x}\\dfrac{dx}{dt}+\\dfrac{\\partial u}{\\partial y}\\dfrac{dy}{dt}",
+     "Jacobian: J = \\dfrac{\\partial(u,v)}{\\partial(x,y)} = \\begin{vmatrix}u_x&u_y\\\\v_x&v_y\\end{vmatrix}",
+     "With r=f_{xx},\\ s=f_{xy},\\ t=f_{yy}: \\text{maximum if } rt-s^2>0 \\text{ and } r<0",
+     "Minimum if rt-s^2>0 \\text{ and } r>0",
+     "Lagrange multipliers: \\nabla f = \\lambda\\nabla g"
+    ]
+   },
+   {
+    "unit": 5,
+    "title": "Multivariable Calculus (Integration)",
+    "topics": [
+     "Double integrals and change of order",
+     "Change of variables",
+     "Triple integrals",
+     "Areas and volumes"
+    ],
+    "formulas": [
+     "Area: A = \\iint_R dx\\,dy",
+     "Volume: V = \\iiint_E dx\\,dy\\,dz",
+     "Polar: x = r\\cos\\theta,\\; y = r\\sin\\theta,\\; dx\\,dy = r\\,dr\\,d\\theta",
+     "Cylindrical: dV = r\\,dr\\,d\\theta\\,dz",
+     "Spherical: dV = r^2\\sin\\phi\\,dr\\,d\\phi\\,d\\theta",
+     "Change of variables: \\iint f\\,dx\\,dy = \\iint f\\,|J|\\,du\\,dv"
+    ]
+   }
+  ]
+ },
+ {
+  "year": 1,
+  "semester": 2,
+  "subject": "Ordinary Differential Equations and Vector Calculus (MA201BS, JNTUH R22)",
+  "verified": false,
+  "note": "Unit breakdown is from standard R22 content; verify against the JNTUH PDF.",
+  "source": "MA201BS Ordinary Differential Equations and Vector Calculus (JNTUH R22). The course title is confirmed from JNTUH PDFs; the unit breakdown is from standard R22 content and was not read from the PDF - verify.",
+  "units": [
+   {
+    "unit": 1,
+    "title": "First Order ODE (draft)",
+    "topics": [
+     "Variable separable",
+     "Exact equations and integrating factors",
+     "Linear and Bernoulli equations",
+     "Orthogonal trajectories, Newton's law of cooling"
+    ],
+    "formulas": [
+     "Linear: \\dfrac{dy}{dx}+Py = Q,\\quad \\text{I.F.} = e^{\\int P\\,dx}",
+     "Bernoulli: \\dfrac{dy}{dx}+Py = Qy^n,\\ \\text{put } z = y^{1-n}",
+     "Exact: M\\,dx+N\\,dy = 0 \\text{ if } \\dfrac{\\partial M}{\\partial y} = \\dfrac{\\partial N}{\\partial x}",
+     "Newton's law of cooling: \\dfrac{dT}{dt} = -k(T-T_s)"
+    ]
+   },
+   {
+    "unit": 2,
+    "title": "Higher Order Linear ODE (draft)",
+    "topics": [
+     "Complementary function",
+     "Particular integral",
+     "Method of variation of parameters",
+     "Cauchy-Euler equation"
+    ],
+    "formulas": [
+     "Distinct real roots: y = C_1e^{m_1x}+C_2e^{m_2x}",
+     "Repeated root: y = (C_1+C_2x)e^{mx}",
+     "Complex roots \\alpha\\pm i\\beta: y = e^{\\alpha x}(C_1\\cos\\beta x+C_2\\sin\\beta x)",
+     "P.I. for e^{ax}: \\dfrac{1}{f(D)}e^{ax} = \\dfrac{e^{ax}}{f(a)} \\quad (f(a)\\ne0)",
+     "Variation of parameters: y_p = -y_1\\int\\dfrac{y_2R}{W}\\,dx + y_2\\int\\dfrac{y_1R}{W}\\,dx"
+    ]
+   },
+   {
+    "unit": 3,
+    "title": "Laplace Transforms (draft)",
+    "topics": [
+     "Transforms of standard functions",
+     "Shifting theorems",
+     "Transforms of derivatives and integrals",
+     "Inverse transforms and convolution",
+     "Solving ODEs"
+    ],
+    "formulas": [
+     "\\mathcal{L}\\{e^{at}\\} = \\dfrac{1}{s-a}",
+     "\\mathcal{L}\\{t^n\\} = \\dfrac{n!}{s^{n+1}}",
+     "\\mathcal{L}\\{\\sin at\\} = \\dfrac{a}{s^2+a^2},\\quad \\mathcal{L}\\{\\cos at\\} = \\dfrac{s}{s^2+a^2}",
+     "\\mathcal{L}\\{\\sinh at\\} = \\dfrac{a}{s^2-a^2},\\quad \\mathcal{L}\\{\\cosh at\\} = \\dfrac{s}{s^2-a^2}",
+     "First shifting: \\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)",
+     "\\mathcal{L}\\{f'(t)\\} = sF(s)-f(0)",
+     "\\mathcal{L}\\{tf(t)\\} = -F'(s)"
+    ]
+   },
+   {
+    "unit": 4,
+    "title": "Vector Differentiation (draft)",
+    "topics": [
+     "Gradient",
+     "Divergence and curl",
+     "Directional derivative",
+     "Vector identities"
+    ],
+    "formulas": [
+     "\\nabla f = \\dfrac{\\partial f}{\\partial x}\\hat i+\\dfrac{\\partial f}{\\partial y}\\hat j+\\dfrac{\\partial f}{\\partial z}\\hat k",
+     "\\operatorname{div}\\vec F = \\nabla\\cdot\\vec F,\\quad \\operatorname{curl}\\vec F = \\nabla\\times\\vec F",
+     "Directional derivative: \\nabla f\\cdot\\hat u",
+     "\\nabla\\cdot(\\nabla\\times\\vec F) = 0,\\quad \\nabla\\times(\\nabla f) = \\vec 0"
+    ]
+   },
+   {
+    "unit": 5,
+    "title": "Vector Integration (draft)",
+    "topics": [
+     "Line, surface and volume integrals",
+     "Green's theorem",
+     "Stokes' theorem",
+     "Gauss divergence theorem"
+    ],
+    "formulas": [
+     "Line integral: \\int_C\\vec F\\cdot d\\vec r",
+     "Green: \\oint_C(P\\,dx+Q\\,dy) = \\iint_R\\left(\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}\\right)dx\\,dy",
+     "Stokes: \\oint_C\\vec F\\cdot d\\vec r = \\iint_S(\\nabla\\times\\vec F)\\cdot\\hat n\\,dS",
+     "Gauss: \\iint_S\\vec F\\cdot\\hat n\\,dS = \\iiint_V\\nabla\\cdot\\vec F\\,dV"
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "subject": "Mathematics 1A (SAMPLE - replace from official syllabus)",
+    "units": [
+      {"unit": 1, "title": "Test Unit One (sample)", "topics": ["differentiation", "integration"],
+       "formulas": ["\\frac{d}{dx}(x^n) = n x^{n-1}", "\\frac{d}{dx}(\\sin x) = \\cos x", "\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\quad (n \\neq -1)", "\\cos^2 x = \\frac{1+\\cos 2x}{2}"]},
+      {"unit": 2, "title": "Test Unit Two (sample)", "topics": ["limits", "equations"],
+       "formulas": ["\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1", "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"]}
+    ]
+  }
+]

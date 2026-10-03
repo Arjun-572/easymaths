@@ -1,4 +1,4 @@
 fastapi
 uvicorn
 sympy
-ollama
+google-genai
